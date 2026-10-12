@@ -1,0 +1,7 @@
+{
+  "name": "esperanca-cma-3-anos",
+  "private": true,
+  "type": "module",
+  "scripts": { "build": "node scripts/build.mjs" },
+  "engines": { "node": ">=22" }
+}
