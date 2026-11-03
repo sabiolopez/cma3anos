@@ -1,0 +1,188 @@
+/* Paleta aprovada: azul de marca, preto e superfícies claras.
+   Carregada após os estilos de layout para centralizar o tema. */
+:root {
+  --brand: #337a98;
+  --brand-hover: #28627b;
+  --paper: #fcfbf7;
+  --surface: #eaf2f5;
+  --ink: #161a1c;
+  --text: #161a1c;
+  --muted: #56636a;
+  --line: #c9d5db;
+  --control-border: #64757e;
+  --link: #337a98;
+  --focus: #28627b;
+  /* Alias dos detalhes decorativos do layout existente. */
+  --yellow: var(--brand);
+}
+body { background: var(--paper); color: var(--text); }
+.ambient-light { display: none; }
+.eyebrow, .day .label, .hero .hero-anniversary,
+.hero > .eyebrow:first-child, .date-sun,
+.history-stop[aria-pressed=true] small { color: var(--link); }
+.hero .clock strong { color: var(--text); }
+.hero .clock i { color: var(--muted); opacity: 1; }
+.button, .dark-community .button {
+  background: var(--brand); border-color: var(--brand); color: #fff;
+}
+.button:hover, .dark-community .button:hover {
+  background: var(--brand-hover); border-color: var(--brand-hover); color: #fff;
+}
+a:focus-visible, button:focus-visible, input:focus-visible,
+textarea:focus-visible, select:focus-visible,
+.history-stop:focus-visible, .history-arrow:focus-visible,
+.dark-community .button:focus-visible,
+.cta-ribbon.dark-community nav a:focus-visible,
+.dark-community .contribution-pix .button:focus-visible {
+  outline: 3px solid var(--focus); outline-offset: 3px;
+}
+input, textarea, #souvenir-size { border-color: var(--control-border); }
+input:focus, textarea:focus, #souvenir-size:focus {
+  outline: 3px solid var(--focus); outline-offset: 3px;
+}
+input::placeholder, textarea::placeholder { color: var(--muted); opacity: 1; }
+.dark-community {
+  --ink: #fcfbf7;
+  --text: #fcfbf7;
+  --muted: #b9c5ca;
+  --line: #354047;
+  --surface: #161a1c;
+  --link: #83bdd4;
+  --focus: #83bdd4;
+  background: #0b0d0e;
+  color: var(--text);
+}
+.dark-community h2, .dark-community h3 { color: var(--text); }
+.dark-community .eyebrow,
+.cta-ribbon.dark-community nav a { color: var(--link); }
+.cta-ribbon.dark-community nav a { text-decoration: underline; text-underline-offset: 5px; }
+.cta-ribbon.dark-community nav a:hover { color: var(--text); }
+.cta-ribbon.dark-community, #mensagem.dark-community { border-color: var(--line); }
+#mensagem.dark-community .message-copy p { color: var(--muted); }
+#mensagem.dark-community .message-copy > strong { color: var(--text); border-color: var(--brand); }
+.dark-community .presence-whatsapp { color: var(--link); }
+.dark-community .contribution-pix {
+  --ink: #161a1c;
+  --text: #161a1c;
+  --muted: #56636a;
+  --line: #c9d5db;
+  --link: #337a98;
+  --focus: #28627b;
+  background: var(--paper) !important;
+  color: var(--text); border-color: var(--line);
+}
+.dark-community .contribution-pix .eyebrow { color: var(--link); }
+.dark-community .contribution-pix .status { color: var(--text); }
+#contribuir .contribution-qr { border-color: var(--line); }
+#contribuir .contribution-qr figcaption { color: var(--muted); }
+.pix-instruction b { color: var(--text); }
+.pix-block { background: var(--surface); }
+.pix-block > .eyebrow { color: var(--brand-hover); }
+.dark-community .contribution-pix > .eyebrow { color: var(--link); }
+#lembrancas .souvenir-coming-label {
+  color: var(--link); border-color: var(--link); background: transparent;
+}
+#local { background: var(--paper); }
+#local .photo::after { border-color: var(--control-border); }
+.history-arrow { border-color: var(--control-border); }
+.history-arrow:hover:not(:disabled), .saturday { background: var(--surface); }
+.history-stop:hover { border-color: var(--brand); }
+.history-stop[aria-pressed=true] { border-color: var(--brand); }
+.history-stops { scrollbar-color: var(--control-border) transparent; }
+.event-timeline li:not(:last-child)::before { background: var(--line); }
+.event-date::before, .quote, .quote:nth-child(2), .quote:nth-child(3),
+.contribution { background: var(--surface); }
+.quote { border-color: var(--brand); }
+footer { background: var(--paper); }
+footer .eyebrow { color: var(--link); }
+footer a { color: var(--link); text-decoration: underline; text-underline-offset: 4px; overflow-wrap: anywhere; }
+#rsvp-dialog, #contribution-dialog, #souvenir-dialog { box-shadow: 0 24px 90px #0b0d0e26; }
+#rsvp-dialog::backdrop, #contribution-dialog::backdrop,
+#souvenir-dialog::backdrop { background: #0b0d0e80; }
+
+/* Textura em camada independente: a opacidade nunca afeta o conteúdo. */
+.hero-band > .site-header {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 24px 40px;
+  background: var(--paper);
+}
+.hero-band > .site-header > a > img { width: 165px; }
+.hero-band > .site-header > a { flex-shrink: 0; }
+.hero-band > .site-header nav {
+  display: flex;
+  order: 0;
+  width: auto;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 28px;
+  padding: 0;
+  overflow: visible;
+  font-size: 14px;
+}
+.site-header nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 4px;
+  color: var(--text);
+  font-weight: 500;
+  white-space: nowrap;
+}
+.site-header nav a:first-child { color: var(--brand); }
+.site-header nav a:hover { text-decoration: underline; text-underline-offset: 5px; }
+.site-header .nav-short { display: none; }
+@media (min-width: 1100px) {
+  .hero-band::before, .hero-band::after { top: 135px; }
+}
+@media (max-width: 900px) {
+  .hero-band > .site-header {
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    padding: 22px 24px 8px;
+  }
+  .hero-band > .site-header nav { justify-content: center; gap: 24px; }
+}
+@media (max-width: 650px) {
+  .hero-band > .site-header > a > img { width: 140px; }
+  .site-header .nav-full { display: none; }
+  .site-header .nav-short { display: inline; }
+  .hero-band > .site-header nav { gap: 18px; }
+}
+
+#mensagem, #comunidade, #contribuir, #lembrancas, #local {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+#mensagem::before, #comunidade::before, #contribuir::before, #lembrancas::before, #local::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  pointer-events: none;
+  z-index: -1;
+}
+#mensagem::before {
+  background-image: url("bg2.svg");
+  opacity: .07;
+}
+#local::before {
+  background-image: url("bg1.svg");
+  opacity: .035;
+}
+#comunidade::before, #contribuir::before, #lembrancas::before {
+  background-image: url("bg1.svg");
+  opacity: .06;
+}
+@media (max-width: 650px) {
+  #mensagem::before { opacity: .045; }
+  #local::before { opacity: .025; }
+  #comunidade::before, #contribuir::before, #lembrancas::before { opacity: .045; }
+}

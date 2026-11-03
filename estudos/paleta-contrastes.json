@@ -1,0 +1,124 @@
+{
+  "paleta": {
+    "brand": "#337A98",
+    "brand-hover": "#28627B",
+    "light": "#FCFBF7",
+    "light-soft": "#EAF2F5",
+    "ink": "#161A1C",
+    "muted-light": "#56636A",
+    "dark": "#0B0D0E",
+    "dark-raised": "#161A1C",
+    "text-dark": "#FCFBF7",
+    "muted-dark": "#B9C5CA",
+    "accent-dark": "#83BDD4",
+    "white": "#FFFFFF",
+    "control-border": "#64757E"
+  },
+  "pares": [
+    {
+      "uso": "Texto principal light",
+      "frente": "#161A1C",
+      "fundo": "#FCFBF7",
+      "contraste": 16.92,
+      "minimo": 4.5
+    },
+    {
+      "uso": "Texto secundário light",
+      "frente": "#56636A",
+      "fundo": "#FCFBF7",
+      "contraste": 5.985,
+      "minimo": 4.5
+    },
+    {
+      "uso": "Link light",
+      "frente": "#337A98",
+      "fundo": "#FCFBF7",
+      "contraste": 4.633,
+      "minimo": 4.5
+    },
+    {
+      "uso": "Texto em superfície azul suave",
+      "frente": "#161A1C",
+      "fundo": "#EAF2F5",
+      "contraste": 15.449,
+      "minimo": 4.5
+    },
+    {
+      "uso": "Link em superfície azul suave",
+      "frente": "#28627B",
+      "fundo": "#EAF2F5",
+      "contraste": 5.929,
+      "minimo": 4.5
+    },
+    {
+      "uso": "Botão primário",
+      "frente": "#FFFFFF",
+      "fundo": "#337A98",
+      "contraste": 4.797,
+      "minimo": 4.5
+    },
+    {
+      "uso": "Botão hover",
+      "frente": "#FFFFFF",
+      "fundo": "#28627B",
+      "contraste": 6.724,
+      "minimo": 4.5
+    },
+    {
+      "uso": "Texto principal dark",
+      "frente": "#FCFBF7",
+      "fundo": "#0B0D0E",
+      "contraste": 18.811,
+      "minimo": 4.5
+    },
+    {
+      "uso": "Texto secundário dark",
+      "frente": "#B9C5CA",
+      "fundo": "#0B0D0E",
+      "contraste": 11.04,
+      "minimo": 4.5
+    },
+    {
+      "uso": "Link dark",
+      "frente": "#83BDD4",
+      "fundo": "#0B0D0E",
+      "contraste": 9.456,
+      "minimo": 4.5
+    },
+    {
+      "uso": "Texto em painel dark",
+      "frente": "#FCFBF7",
+      "fundo": "#161A1C",
+      "contraste": 16.92,
+      "minimo": 4.5
+    },
+    {
+      "uso": "Link em painel dark",
+      "frente": "#83BDD4",
+      "fundo": "#161A1C",
+      "contraste": 8.505,
+      "minimo": 4.5
+    },
+    {
+      "uso": "Borda de controle light",
+      "frente": "#64757E",
+      "fundo": "#FCFBF7",
+      "contraste": 4.622,
+      "minimo": 3
+    },
+    {
+      "uso": "Borda de controle dark",
+      "frente": "#64757E",
+      "fundo": "#0B0D0E",
+      "contraste": 4.07,
+      "minimo": 3
+    },
+    {
+      "uso": "Botão / fundo dark",
+      "frente": "#337A98",
+      "fundo": "#0B0D0E",
+      "contraste": 4.061,
+      "minimo": 3
+    }
+  ]
+}
