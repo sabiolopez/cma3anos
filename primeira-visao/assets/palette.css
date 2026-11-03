@@ -107,7 +107,7 @@ footer a { color: var(--link); text-decoration: underline; text-underline-offset
   justify-content: space-between;
   gap: 32px;
   padding: 24px 40px;
-  background: var(--paper);
+  background: transparent;
 }
 .hero-band > .site-header > a > img { width: 165px; }
 .hero-band > .site-header > a { flex-shrink: 0; }
