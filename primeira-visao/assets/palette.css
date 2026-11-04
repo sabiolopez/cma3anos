@@ -186,3 +186,36 @@ footer a { color: var(--link); text-decoration: underline; text-underline-offset
   #local::before { opacity: .025; }
   #comunidade::before, #contribuir::before, #lembrancas::before { opacity: .045; }
 }
+
+/* Arte de fundo do cronograma e do encerramento. */
+#programacao, footer {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+#programacao::before, footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: url("texto.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+#programacao::before {
+  background-position: center;
+  opacity: .04;
+}
+footer::before {
+  opacity: .05;
+}
+@media (max-width: 650px) {
+  #programacao::before {
+    opacity: .03;
+  }
+  footer::before {
+    opacity: .035;
+  }
+}
