@@ -222,7 +222,7 @@ body:has(dialog[open]){overflow:hidden}
 .souvenir-section h2{max-width:650px}.souvenir-section .lead{max-width:610px}.souvenir-actions{display:flex;flex-direction:column;gap:14px;flex-shrink:0}.souvenir-actions .button{justify-content:space-between}
 #souvenir-dialog{border:0;border-radius:14px;background:var(--paper);color:var(--text);width:min(480px,calc(100vw - 32px));padding:40px;max-height:calc(100dvh - 40px);overflow:auto;box-shadow:0 24px 90px #00464226}
 #souvenir-dialog::backdrop{background:rgba(18,36,31,.35);backdrop-filter:blur(4px)}#souvenir-dialog h2{font-size:32px;margin:20px 0 14px}.souvenir-price{font-size:16px;color:var(--ink)}#souvenir-form .button{width:100%;margin-top:20px}
-#souvenir-size{font:inherit;color:var(--text);background:transparent;border:0;border-bottom:1px solid #8ba39a;border-radius:0;width:100%;padding:12px 0;font-size:16px}#souvenir-size:focus{outline:2px solid #b5cdbf;outline-offset:4px}
+:is(#souvenir-size,#souvenir-product){font:inherit;color:var(--text);background:transparent;border:0;border-bottom:1px solid #8ba39a;border-radius:0;width:100%;padding:12px 0;font-size:16px}:is(#souvenir-size,#souvenir-product):focus{outline:2px solid #b5cdbf;outline-offset:4px}
 @media(max-width:650px){.souvenir-actions{margin-top:28px;align-items:start}#souvenir-dialog{padding:32px 24px}}
 
 .souvenir-section{display:grid;grid-template-columns:1fr 1fr;gap:28px 45px}
@@ -263,8 +263,8 @@ header{gap:24px}header>a,header>.edition{flex-shrink:0}nav{gap:20px;font-size:14
 @media(max-width:650px){.history-section>h2,.history-section>.lead{padding-right:0;max-width:calc(100% - 75px)}}
 @media(max-width:650px){.ribbon span:last-child{display:inline}}
 /* Campos claros e silenciosos: label externo, contorno completo. */
-input,textarea,#souvenir-size{border:1px solid #b8c8bd;border-radius:6px;background:#fffefa;padding:12px 14px;width:100%;min-height:48px;color:var(--text);font-size:16px}
-input:focus,textarea:focus,#souvenir-size:focus{border-color:var(--ink);outline:2px solid #00464220;outline-offset:2px}
+input,textarea,:is(#souvenir-size,#souvenir-product){border:1px solid #b8c8bd;border-radius:6px;background:#fffefa;padding:12px 14px;width:100%;min-height:48px;color:var(--text);font-size:16px}
+input:focus,textarea:focus,:is(#souvenir-size,#souvenir-product):focus{border-color:var(--ink);outline:2px solid #00464220;outline-offset:2px}
 form label{margin-top:18px;margin-bottom:8px}
 #rsvp-form input{margin-bottom:0}
 
@@ -378,21 +378,28 @@ footer>img{width:148px}
 footer .signature .festa-wordmark{width:220px;height:auto;margin:0 auto}
 @media(max-width:650px){.hero .title-wrap{width:min(250px,calc(100vw - 80px))}}
 
-#lembrancas .souvenir-order{display:grid;grid-template-columns:minmax(0, .9fr) minmax(0, 1.1fr);gap:56px;align-items:center;max-width:1120px}
-.souvenir-photo img{display:block;width:100%;height:auto;border-radius:12px}
-#lembrancas .souvenir-copy h2{margin:18px 0 22px;font-size:clamp(30px,3.6vw,43px)}
-#lembrancas .souvenir-copy .lead{margin-bottom:26px}
-.souvenir-details{display:flex;gap:28px;padding:20px 0;border-block:1px solid var(--line)}
-.souvenir-details span,.souvenir-pix>span:first-child{display:block;font-size:12px}
-.souvenir-details strong{display:block;font-size:20px;color:var(--link);font-weight:500}
-#lembrancas .souvenir-copy h3{font-size:23px;margin:28px 0 10px}
-#lembrancas .souvenir-copy p{font-size:15px}
-.souvenir-pix{padding:20px;background:var(--surface);border:1px solid var(--line);border-radius:8px;margin:22px 0}
-.souvenir-pix>strong{display:block;font-size:24px;letter-spacing:.04em;overflow-wrap:anywhere}
-#lembrancas .souvenir-pix .button{margin-top:12px}
+#lembrancas .souvenir-order{max-width:1120px}
+#souvenir-order-title{margin:12px 0;font-size:clamp(30px,4vw,44px)}
+.souvenir-deadline{margin:0 0 28px}
+.souvenir-order time{color:#f4cf50}
+.souvenir-deadline time{font-size:1.2em}
+.souvenir-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:stretch}
+.souvenir-card{display:flex;flex-direction:column;min-width:0;padding:clamp(16px,3vw,28px);border:1px solid #ffffff40;border-radius:12px;background:#004642}
+.souvenir-card img{display:block;width:100%;aspect-ratio:4/3;object-fit:contain;background:#fcfbf7;border-radius:8px}
+.souvenir-card h3{margin:16px 0 4px;font-size:clamp(21px,3vw,26px)}
+.souvenir-card p{margin:0 0 16px}
+.souvenir-card .souvenir-cost{color:#fcfbf7}
+.souvenir-card .souvenir-minimum{padding:12px 14px;border-left:3px solid #f4cf50;background:#ffffff12;color:#fcfbf7}
+.souvenir-card .button{margin-top:auto;width:100%;min-height:48px;text-align:center}
+.souvenir-shipping{margin:20px 0 0;font-size:14px}
+.souvenir-payment{margin-top:14px}
+.souvenir-payment summary{cursor:pointer;padding:10px 0;text-decoration:underline;text-underline-offset:3px}
+.souvenir-payment summary:focus-visible{outline:2px solid #f4cf50;outline-offset:4px}
+.souvenir-pix{margin:8px 0 14px}
+.souvenir-pix strong{display:block;margin-bottom:8px;overflow-wrap:anywhere}
 #shirt-pix-status{display:block;font-size:12px;margin-top:8px}
-.souvenir-poll{padding-top:18px;border-top:1px solid var(--line)}
-@media(max-width:700px){#lembrancas .souvenir-order{grid-template-columns:1fr;gap:30px}.souvenir-photo{max-width:400px;margin:auto}.souvenir-details{flex-wrap:wrap;gap:18px}}
+@media(max-width:700px){.souvenir-grid{grid-template-columns:1fr;gap:18px}}
+@media(max-width:380px){#lembrancas .souvenir-order{padding-inline:16px}}
 </style><link rel="stylesheet" href="assets/palette.css"></head><body><div class="ambient-light" aria-hidden="true"><span></span><span></span></div>
 <div class="hero-band"><header class="site-header"><a href="#inicio" aria-label="CMA Brasil, início"><img src="assets/logo-cma.svg" alt="Crystal Meth Anonymous"></a><nav aria-label="Navegação principal"><a href="#comunidade"><span class="nav-full">Confirmar presença</span><span class="nav-short">Presença</span></a><a href="#contribuir">Contribuir</a><a href="#lembrancas">Lembranças</a></nav></header>
 <div class="hero" id="inicio"><div class="title-wrap"><h1><img src="assets/logo-festa.svg" alt="Esperança" class="festa-wordmark"></h1><svg class="underline" viewBox="0 0 500 25" aria-hidden="true"><path d="M3 18Q190 0 490 10M100 24Q320 9 450 17" fill="none" stroke="#004642" stroke-width="2.5" stroke-linecap="round"/></svg></div><div class="countdown"><p>Contagem regressiva · faltam</p><div class="clock" aria-label="Contagem regressiva para 13 de dezembro"><div><strong id="days">63</strong><small>dias</small></div><i>:</i><div><strong id="hours">00</strong><small>horas</small></div><i>:</i><div><strong id="minutes">00</strong><small>minutos</small></div></div></div><svg class="motif motif-flower hero-motif" viewBox="0 0 100 110" fill="none" aria-hidden="true"><path d="M51 102Q35 60 54 25M46 71Q15 74 19 52Q41 47 46 71M47 59Q76 58 79 39Q54 36 47 59" stroke="#004642" stroke-width="2" stroke-linecap="round"/><path d="M54 30C10 43 17 8 44 20C29-12 70-4 61 19C93-3 105 32 70 30C92 57 52 66 54 30Z" fill="#f4cf50"/><circle cx="57" cy="28" r="6" fill="#004642"/></svg></div>
@@ -403,8 +410,42 @@ footer .signature .festa-wordmark{width:220px;height:auto;margin:0 auto}
 <div class="community dark-community" id="comunidade"><section class="rsvp-section presence-section"><img class="accessory accessory-flower" src="assets/flor-palette.svg" alt=""><div><span class="eyebrow">Vamos preparar esse encontro juntos</span><h2>Confirme sua presença.</h2><p class="lead">Responda à enquete fixada no grupo do CMA no WhatsApp e indique se você vai participar do evento. Sua resposta nos ajuda a preparar esse encontro.</p></div><svg class="presence-whatsapp" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.52 3.48A11.91 11.91 0 0 0 12.05 0C5.47 0 .11 5.35.1 11.94c0 2.1.55 4.15 1.6 5.96L0 24l6.25-1.64a11.93 11.93 0 0 0 5.8 1.48h.01C18.64 23.84 24 18.49 24 11.9c0-3.19-1.24-6.18-3.48-8.42zM12.06 21.82h-.01a9.9 9.9 0 0 1-5.05-1.38l-.36-.21-3.71.97.99-3.62-.23-.37a9.88 9.88 0 0 1-1.52-5.27c0-5.48 4.46-9.94 9.95-9.94a9.88 9.88 0 0 1 7.03 2.92 9.88 9.88 0 0 1 2.91 7.04c0 5.48-4.46 9.94-9.94 9.94zm5.45-7.44c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49 0 1.47 1.07 2.89 1.22 3.09.15.2 2.1 3.2 5.08 4.49.71.3 1.26.48 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35z"/></svg></section></div>
 <section class="location" id="local"><div class="photo"><img src="assets/cma.png" alt="Fachada da Comunidade Santa Teresinha e São Francisco, na Rua Araquã, em São Paulo" loading="lazy"></div><div><span class="eyebrow">03 / Nosso espaço de encontro</span><h2 style="margin-top:20px">Um lugar para<br><em>nos encontrar.</em></h2><p class="lead">O mesmo espaço que acolhe as nossas reuniões presenciais em São Paulo vai acolher esse momento da nossa história.</p><address><strong>Rua Araquã, 25</strong><br>Bela Vista · São Paulo/SP</address><p class="note">Orientações de acesso serão adicionadas em breve.</p></div></section>
 <div class="community contribution-section dark-community" id="contribuir"><section class="rsvp-section"><div><span class="eyebrow">Sétima Tradição</span><h2>Ajude a preparar o nosso encontro.</h2><p class="lead">As contribuições voluntárias dos membros ajudam a custear a celebração. Qualquer valor ajuda. Sua presença é o mais importante.</p></div><div class="pix-block contribution-pix"><span class="eyebrow">Chave Pix · e-mail</span><strong>fabioatnyc@gmail.com</strong><button type="button" class="button" id="copy-pix">Copiar chave Pix</button><p id="pix-status" class="status" role="status"></p><figure class="contribution-qr"><figcaption>Ou escaneie o QR code</figcaption><img src="assets/pix-qrcode.png" alt="QR code Pix para contribuir com a celebração do CMA Brasil" width="399" height="387" loading="lazy"></figure><p class="pix-instruction">Ao fazer o Pix, escreva <b>CMA 3 anos</b> no campo de mensagem para identificar sua contribuição.</p></div></section></div>
-<section id="historia" class="history-section"><span class="eyebrow">Nossa caminhada</span><h2>Três anos de encontros.<br>Uma história que continua.</h2><p class="lead">Conheça os encontros e os passos que construíram o CMA Brasil.</p><div class="history-chapter" aria-live="polite" aria-atomic="true"><div class="history-date" id="history-date">16 de setembro de 1994</div><article><h3 id="history-title">Nasce o Crystal Meth Anonymous</h3><p id="history-body">Em 16 de setembro de 1994, 13 pessoas participaram da primeira reunião do Crystal Meth Anonymous, em West Hollywood, Califórnia. A partir desse primeiro encontro, novas reuniões começaram a surgir e o CMA iniciou sua expansão.</p><div id="history-today" hidden><div class="history-metrics"><div><strong>7</strong><span>reuniões online por semana</span><small>Uma todos os dias.</small></div><div><strong>2</strong><span>reuniões presenciais por semana</span><small>Em São Paulo.</small></div></div></div></article></div><div class="history-controls"><span id="history-progress">01 / 7</span><div><button type="button" class="history-arrow" id="history-prev" aria-label="Marco anterior" disabled>←</button><button type="button" class="history-arrow" id="history-next" aria-label="Próximo marco">→</button></div></div></section><div class="community dark-community" id="lembrancas"><section class="souvenir-order" aria-labelledby="souvenir-order-title"><div class="souvenir-photo"><img src="assets/camiseta-festa.jpg" alt="Camiseta branca com estampa floral em preto e azul e a frase Um passo de cada vez" loading="lazy"></div><div class="souvenir-copy"><span class="eyebrow">Lembranças do encontro</span><h2 id="souvenir-order-title">Um pedacinho da festa<br>para levar com você.</h2><p class="lead">Uma camiseta para guardar esse encontro e seguir com a gente: um passo de cada vez.</p><div class="souvenir-details"><div><span>Valor da camiseta</span><strong>R$ 60,00</strong></div><div><span>Encomenda e pagamento até</span><strong>27 de novembro</strong></div></div><h3>Quer a sua? Fale com o Luba.</h3><p>Confirme seu interesse e informe o tamanho: <strong>P, M, G ou GG.</strong> Faça seu pedido com antecedência.</p><div class="souvenir-pix"><span>Pix da camiseta</span><strong id="shirt-pix">1199603879</strong><button class="button" type="button" id="copy-shirt-pix">Copiar chave Pix</button><span id="shirt-pix-status" role="status" aria-live="polite"></span></div><p>Você pode fazer o Pix primeiro e depois enviar ao Luba o comprovante junto com o tamanho desejado.</p><p class="souvenir-poll">Já reservou na enquete do grupo CMA Brasil? Fale com o Luba também para confirmar o tamanho e o pagamento.</p></div></section></div>
-<dialog id="souvenir-dialog" aria-labelledby="souvenir-title"><button type="button" class="close-dialog" id="close-souvenir" aria-label="Fechar lembranças">×</button><span class="eyebrow">Lembranças · Esperança</span><h2 id="souvenir-title">Quero uma camiseta</h2><p class="souvenir-price">Valor: <strong>a confirmar</strong></p><p class="note">Deixe seu interesse. A disponibilidade e os detalhes da compra serão confirmados pela organização.</p><form id="souvenir-form"><label for="souvenir-name">Nome</label><input id="souvenir-name" name="name" required maxlength="80" autocomplete="given-name"><label for="souvenir-email">E-mail</label><input id="souvenir-email" name="email" type="email" required maxlength="254" autocomplete="email"><div id="souvenir-size-wrap"><label for="souvenir-size">Tamanho da camiseta</label><select id="souvenir-size" name="size"><option value=""></option><option>PP</option><option>P</option><option>M</option><option>G</option><option>GG</option><option>XGG</option></select></div><button type="submit" class="button">Registrar meu interesse</button><p class="status" role="status" id="souvenir-status"></p></form></dialog></main>
+<section id="historia" class="history-section"><span class="eyebrow">Nossa caminhada</span><h2>Três anos de encontros.<br>Uma história que continua.</h2><p class="lead">Conheça os encontros e os passos que construíram o CMA Brasil.</p><div class="history-chapter" aria-live="polite" aria-atomic="true"><div class="history-date" id="history-date">16 de setembro de 1994</div><article><h3 id="history-title">Nasce o Crystal Meth Anonymous</h3><p id="history-body">Em 16 de setembro de 1994, 13 pessoas participaram da primeira reunião do Crystal Meth Anonymous, em West Hollywood, Califórnia. A partir desse primeiro encontro, novas reuniões começaram a surgir e o CMA iniciou sua expansão.</p><div id="history-today" hidden><div class="history-metrics"><div><strong>7</strong><span>reuniões online por semana</span><small>Uma todos os dias.</small></div><div><strong>2</strong><span>reuniões presenciais por semana</span><small>Em São Paulo.</small></div></div></div></article></div><div class="history-controls"><span id="history-progress">01 / 7</span><div><button type="button" class="history-arrow" id="history-prev" aria-label="Marco anterior" disabled>←</button><button type="button" class="history-arrow" id="history-next" aria-label="Próximo marco">→</button></div></div></section><div class="community dark-community" id="lembrancas">
+  <section class="souvenir-order" aria-labelledby="souvenir-order-title">
+    <span class="eyebrow">Lembranças do encontro</span>
+    <h2 id="souvenir-order-title">Um pedacinho da festa para levar com você.</h2>
+    <p class="souvenir-deadline">Confirme seu interesse no formulário até <strong><time datetime="2026-11-27">27 de novembro</time></strong>.</p>
+    <div class="souvenir-grid">
+      <article class="souvenir-card">
+        <img src="assets/camiseta-festa.jpg" alt="Camiseta branca com estampa floral em preto e azul" loading="lazy">
+        <h3>Camiseta da celebração</h3>
+        <p class="souvenir-cost"><strong>R$ 60,00</strong> · P, M, G e GG</p>
+        <p>Reserve a sua pelo formulário até <strong><time datetime="2026-11-27">27 de novembro</time></strong>.</p>
+        <a class="button" href="/interesse/?produto=camiseta" data-souvenir="Camiseta">Confirmar interesse na camiseta</a>
+      </article>
+      <article class="souvenir-card">
+        <img src="assets/caneca-festa.jpg" alt="Caneca branca com a estampa Um passo de cada vez, vista de dois ângulos" loading="lazy">
+        <h3>Caneca da celebração</h3>
+        <p class="souvenir-cost"><strong>R$ 40,00</strong> por unidade</p>
+        <p class="souvenir-minimum"><strong>Só vamos produzir se houver pelo menos 20 canecas reservadas</strong> até <strong><time datetime="2026-11-27">27 de novembro</time></strong>.</p>
+        <a class="button" href="/interesse/?produto=caneca" data-souvenir="Caneca">Confirmar interesse na caneca</a>
+      </article>
+    </div>
+    <details class="souvenir-payment">
+      <summary>Ver instruções de pagamento</summary>
+      <p><strong>Camiseta.</strong> Pague por Pix até 27 de novembro e envie o comprovante e o tamanho ao Luba. Se já respondeu à enquete do grupo CMA Brasil, confirme o tamanho e o pagamento com ele.</p>
+      <div class="souvenir-pix">
+        <span>Chave Pix da camiseta</span>
+        <strong id="shirt-pix">1199603879</strong>
+        <button class="button" type="button" id="copy-shirt-pix">Copiar chave Pix</button>
+        <span id="shirt-pix-status" role="status"></span>
+      </div>
+      <p><strong>Caneca.</strong> Se atingirmos o mínimo de 20 reservas, entraremos em contato com as instruções de pagamento.</p>
+    </details>
+    <p class="souvenir-shipping"><strong>Mora fora da cidade de São Paulo?</strong> Fale diretamente com o Luba para verificar a possibilidade de envio da sua lembrança.</p>
+  </section>
+</div>
+<dialog id="souvenir-dialog" aria-labelledby="souvenir-title"><button type="button" class="close-dialog" id="close-souvenir" aria-label="Fechar lembranças">×</button><span class="eyebrow">Lembranças · Esperança</span><h2 id="souvenir-title">Quero uma lembrança</h2><p class="souvenir-price" id="souvenir-price"></p><p class="note">Preencha seus dados para a organização entrar em contato.</p><form id="souvenir-form"><label for="souvenir-name">Nome</label><input id="souvenir-name" name="name" required maxlength="80" autocomplete="given-name"><label for="souvenir-phone">Telefone com DDD</label><input id="souvenir-phone" name="phone" type="tel" required maxlength="24" autocomplete="tel"><label for="souvenir-product">Qual lembrança você quer?</label><select id="souvenir-product" name="product" required><option>Camiseta</option><option>Caneca</option></select><div id="souvenir-size-wrap"><label for="souvenir-size">Tamanho da camiseta</label><select id="souvenir-size" name="size"><option value=""></option><option>P</option><option>M</option><option>G</option><option>GG</option></select></div><button type="submit" class="button">Registrar meu interesse</button><p class="status" role="status" id="souvenir-status"></p></form></dialog></main>
 <footer><div class="signature"><img src="assets/logo-festa.svg" alt="Esperança" class="festa-wordmark"></div><p class="note">13 de dezembro de 2026 · São Paulo</p><p>Um dia de cada vez.</p><img src="assets/logo-cma.svg" alt="Crystal Meth Anonymous"><p><a href="https://www.metanfetaminaanonimos.org" target="_blank" rel="noopener noreferrer">www.metanfetaminaanonimos.org</a></p><p class="note art-credit">Arte desenvolvida por André Coelho.</p></footer>
 <script>
 const target=new Date('2026-12-13T00:00:00-03:00').getTime();function tick(){const m=Math.max(0,Math.floor((target-Date.now())/60000));document.querySelector('#days').textContent=Math.floor(m/1440);document.querySelector('#hours').textContent=String(Math.floor(m/60)%24).padStart(2,'0');document.querySelector('#minutes').textContent=String(m%60).padStart(2,'0')}tick();setInterval(tick,1000);
@@ -413,6 +454,5 @@ const historyItems=[["16 de setembro de 1994", "Nasce o Crystal Meth Anonymous",
 
 document.querySelector('#copy-pix').addEventListener('click',async()=>{try{await navigator.clipboard.writeText('fabioatnyc@gmail.com');document.querySelector('#pix-status').textContent='Chave Pix copiada.'}catch{document.querySelector('#pix-status').textContent='Selecione e copie a chave Pix acima.'}});
 
-let souvenirType='';const souvenirDialog=document.querySelector('#souvenir-dialog');document.querySelectorAll('[data-souvenir]').forEach(button=>button.addEventListener('click',()=>{souvenirType=button.dataset.souvenir;document.querySelector('#souvenir-title').textContent=souvenirType==='Camiseta'?'Quero uma camiseta':'Quero uma caneca';const shirt=souvenirType==='Camiseta';document.querySelector('#souvenir-size-wrap').hidden=!shirt;document.querySelector('#souvenir-size').required=shirt;document.querySelector('#souvenir-status').textContent='';souvenirDialog.showModal()}));document.querySelector('#close-souvenir').addEventListener('click',()=>souvenirDialog.close());souvenirDialog.addEventListener('click',e=>{if(e.target===souvenirDialog){const r=souvenirDialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)souvenirDialog.close()}});document.querySelector('#souvenir-form').addEventListener('submit',e=>{e.preventDefault();const f=e.target;const name=f.elements.name.value.trim();if(!name)return;const interest={item:souvenirType,name,email:f.elements.email.value.trim(),size:souvenirType==='Camiseta'?f.elements.size.value:null};try{const saved=JSON.parse(localStorage.getItem('esperanca-souvenirs')||'[]');saved.push(interest);localStorage.setItem('esperanca-souvenirs',JSON.stringify(saved));document.querySelector('#souvenir-status').textContent='Dados registrados.'}catch{document.querySelector('#souvenir-status').textContent='Não foi possível salvar seu interesse. Tente novamente.'}});
 document.querySelector('#copy-shirt-pix').addEventListener('click',async()=>{const status=document.querySelector('#shirt-pix-status');try{await navigator.clipboard.writeText(document.querySelector('#shirt-pix').textContent);status.textContent='Chave Pix copiada.'}catch{status.textContent='Copie a chave acima para fazer o Pix.'}});
-</script></body></html>
+</script><script src="/assets/interesse.js" defer></script></body></html>

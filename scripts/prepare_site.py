@@ -33,6 +33,7 @@ with tempfile.NamedTemporaryFile(suffix='.js', mode='w') as script:
 DIST = ROOT / 'dist'
 DIST.mkdir(exist_ok=True)
 shutil.copy2(SOURCE / 'index.html', DIST / 'index.html')
+shutil.copytree(SOURCE / 'interesse', DIST / 'interesse')
 (DIST / 'assets').mkdir(exist_ok=True)
 for asset in (SOURCE / 'assets').iterdir():
     if asset.suffix.lower() in {'.png', '.svg', '.ttf'}:

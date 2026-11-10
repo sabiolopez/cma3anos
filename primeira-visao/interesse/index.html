@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interesse em lembranças | CMA Brasil</title>
+  <link rel="icon" href="/assets/logo-cma.svg" type="image/svg+xml">
+  <style>
+    @font-face {font-family:Rubik;src:url("/assets/rubik.ttf") format("truetype");font-display:swap}
+    * {box-sizing:border-box}
+    body {margin:0;background:#edf2eb;color:#292e2c;font:1rem/1.55 Rubik,system-ui,sans-serif}
+    main {max-width:510px;margin:clamp(16px,5vw,60px) auto;padding:clamp(22px,6vw,42px);background:#fcfbf7;border-radius:14px}
+    .brand {display:block;width:116px;margin-bottom:24px}
+    .eyebrow {font-size:.75rem;letter-spacing:.12em;text-transform:uppercase}
+    h1 {font-size:clamp(1.8rem,6vw,2.4rem);line-height:1.15;margin:.4em 0;color:#004642}
+    .note {font-size:.875rem;color:#4d5a52}
+    label {display:block;margin:14px 0 5px;font-size:.875rem;font-weight:500}
+    input,select,button {width:100%;min-height:46px;padding:10px 12px;border:1px solid #a2b5a8;border-radius:6px;font:inherit}
+    input,select {background:#fffefa;color:inherit}
+    button {margin-top:20px;background:#004642;color:white;cursor:pointer}
+    button:disabled {opacity:.65;cursor:wait}
+    :focus-visible {outline:3px solid #b78b12;outline-offset:3px}
+    .status {overflow-wrap:anywhere}
+    #preview-note {padding:10px 12px;background:#f5edcc;border-radius:6px}
+  </style>
+  <script src="/assets/interesse.js" defer></script>
+</head>
+<body>
+  <main>
+    <img class="brand" src="/assets/logo-cma.svg" alt="CMA Brasil">
+    <p class="eyebrow">CMA Brasil · 3 anos</p>
+    <h1>Quero uma lembrança</h1>
+    <p>Informe seu telefone para a organização entrar em contato sobre a compra.</p>
+    <p class="note" id="preview-note" hidden>Prévia de teste. Use dados fictícios. O cadastro fica neste computador.</p>
+    <p id="souvenir-price"></p>
+    <form id="souvenir-form"><label for="souvenir-name">Nome</label><input id="souvenir-name" name="name" required maxlength="80" autocomplete="given-name"><label for="souvenir-phone">Telefone com DDD</label><input id="souvenir-phone" name="phone" type="tel" required maxlength="24" autocomplete="tel"><label for="souvenir-product">Qual lembrança você quer?</label><select id="souvenir-product" name="product" required><option>Camiseta</option><option>Caneca</option></select><div id="souvenir-size-wrap"><label for="souvenir-size">Tamanho da camiseta</label><select id="souvenir-size" name="size"><option value=""></option><option>P</option><option>M</option><option>G</option><option>GG</option></select></div><button type="submit" class="button">Registrar meu interesse</button><p class="status" role="status" id="souvenir-status"></p></form>
+  </main>
+</body>
+</html>
